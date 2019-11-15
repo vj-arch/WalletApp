@@ -1,0 +1,39 @@
+<mat-toolbar class="text-primary">
+  <button mat-button routerLink="/add">
+    <mat-icon>account_balance_wallet</mat-icon>Add Money
+  </button>
+  <button mat-button routerLink="">
+    <mat-icon>assessment</mat-icon>Dashboard
+  </button>
+  <button mat-button routerLink="/alltransaction">
+    <mat-icon> list_alt</mat-icon>Transactions
+  </button>
+  <button mat-button routerLink="/transfer">
+    <mat-icon> monetization_on</mat-icon>Transfer Money
+  </button>
+  <span class="example-spacer"></span>
+
+  <p *ngIf="flag" class="text-info" style="margin-bottom:0;">
+    {{ loggedusername }}
+  </p>
+  <p *ngIf="flag" class="text-info" style="margin-bottom:0;margin-left:5px ;">
+    $ {{ wallet_bal }}
+  </p>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item routerLink="/login">
+      <mat-icon>how_to_reg</mat-icon>
+      Login
+    </button>
+
+    <button mat-menu-item>
+      <mat-icon>power_settings_new</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>perm_identity</mat-icon>
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
